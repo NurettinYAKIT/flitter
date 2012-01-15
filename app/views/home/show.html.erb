@@ -1,0 +1,7 @@
+<h1 ><%= image_tag @user.gravatar_url  :align=>"top"  %>  <%= @user.username %> </h1>
+
+
+
+<%= render :partial => "flits_list" , :locals => { :flits => @flits} %>
+
+

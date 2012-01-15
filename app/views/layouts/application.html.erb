@@ -7,27 +7,40 @@
   <%= csrf_meta_tags %>
   <%= yield(:head) %>
 </head>
-<body bgcolor="#00FFFF">
 
-<h2 > <font face="Monotype Corsiva, Verdana" size="8" color="#FFFFFF" > Flitter </font></h2>
+<body>
+    <div id="header">
+      <div id="logo">
+        <%= link_to( image_tag("logo.png", :alt => "Flitter"), root_path) %>
+      </div>
+      <div id="top_links_container">
+        <% if current_user %>
+          logged in as <%= current_user.username %> |
+          <%= link_to "logout", logout_path %>
+        <% else %>
+          <%= link_to "login", login_path %>
+        <% end %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div id="container">
+      <div id="main">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%- end -%>
 
-<div id ="container">
+        <%- if show_title? -%>
+          <h1><%=h yield(:title) %></h1>
+        <%- end -%>
 
-  <%-  flash.each do |name,msg|  -%>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <%- end %>
-
-  <%-  if show_title?  -%>
-      <h1> <%= h yield(:title) %></h1>
-   <%- end %>
-
-
-
-
-  <%= yield  %>
-</div>
-
-
-
-</body>
+        <%= yield %>
+      </div>
+      <div id="side">
+        <% if current_user %>
+          <%= render :partial => "/includes/side_content" %>
+        <% end %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </body>
 </html>

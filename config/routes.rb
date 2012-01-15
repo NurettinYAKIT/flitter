@@ -7,11 +7,12 @@ Flitter::Application.routes.draw do
 
   match 'login' => 'sessions#new', :as => :login
 
-
-
   resources :sessions
   resources :flits
   resources :users
+
+  match '/:username', :to => 'home#show'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
