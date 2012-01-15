@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> <%= h(yield(:title)||"Flitter Page") %> </title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= yield(:head) %>
+</head>
+<body bgcolor="#00FFFF">
+
+<h2 > <font face="Monotype Corsiva, Verdana" size="8" color="#FFFFFF" > Flitter </font></h2>
+
+<div id ="container">
+
+  <%-  flash.each do |name,msg|  -%>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <%- end %>
+
+  <%-  if show_title?  -%>
+      <h1> <%= h yield(:title) %></h1>
+   <%- end %>
+
+
+
+
+  <%= yield  %>
+</div>
+
+
+
+</body>
+</html>
