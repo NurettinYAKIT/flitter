@@ -10,7 +10,7 @@ Flitter::Application.routes.draw do
 
 
   resources :sessions
-
+  resources :flits
   resources :users
 
   # The priority is based upon order of creation:

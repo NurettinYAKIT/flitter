@@ -27,6 +27,27 @@ a {
   margin-top: 20px;
 }
 
+#flits_list li{
+    margin: 0px;
+    padding: 0px;
+}
+
+#flits_list li{
+    list-style: none;
+    padding: 10px 0px;
+    margin:  0px;
+    background-color: #fff;
+    border-bottom: 1px dashed #D2DADA;
+
+}
+
+#flits_list li:hover{
+    background-color: #F7F7F7;
+}
+
+
+
+
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
@@ -73,3 +94,5 @@ a {
 .error_messages ul {
   margin: 0;
 }
+
+
