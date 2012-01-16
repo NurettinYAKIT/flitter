@@ -16,5 +16,11 @@
   <% current_user.friends_of.each do |friend| %>
     <%= link_to image_tag(friend.gravatar_url(:size => 25), :border => 0, :alt => friend.username, :title => friend.username) %>
   <% end %>
+
+  <h4>Followings</h4>
+  <% current_user.friends.each do |friend| %>
+    <%= link_to image_tag(friend.gravatar_url(:size => 25), :border => 0, :alt => friend.username, :title => friend.username) %>
+  <% end %>
+
 </div>
 

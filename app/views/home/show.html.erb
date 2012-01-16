@@ -1,7 +1,16 @@
 <h1 ><%= image_tag @user.gravatar_url  :align=>"top"  %>  <%= @user.username %> </h1>
 
+ <% if current_user.is_friend?@user %>
+    <h3 >Following already</h3>
+    <% else %>
+    <h3 >Follow</h3>
+    <div class="clear"></div>
+<% end %>
+
 
 
 <%= render :partial => "flits_list" , :locals => { :flits => @flits} %>
+
+
 
 
